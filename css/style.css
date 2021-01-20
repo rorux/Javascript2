@@ -36,7 +36,48 @@ body {
 .btn-cart:active > svg {
     fill: #777;
 }
-
+#cart-textarea {
+    width: 1200px;
+    margin: 0 auto;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.cart-item-result {
+    text-align: right;
+    font-size: 24px;
+}
+.cart-item-result-cost {
+    font-weight: 700;
+}
+.cart-item-picture {
+    margin: 0 15px 0 0;
+}
+.cart-item-title {
+    margin: 0 15px 0 0;
+    font-weight: 700;
+    color: #aaa;
+}
+.cart-item-quantity {
+    font-weight: 300;
+    margin: 0 15px 0 0;
+}
+.cart-item-cost {
+    font-weight: 700;
+    color: #000;
+    margin: 0 15px 0 0;
+}
+.cart-item-del {
+    width: 15px;
+    height: 15px;
+    background-image: url('../img/close.svg');
+    cursor: pointer;
+}
+.hide {
+    display: none;
+}
 .menu {
     background: #cd9854;
     padding: 25px 0;

@@ -14,7 +14,7 @@
     <header class="header-main">
         <div class="container">
             <a href="index.html" class="header-main-logo">Наручные часы</a>
-            <span class="btn-cart">
+            <span class="btn-cart" onclick="cartToggle()">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     width="25" height="25" viewBox="0 0 366.305 366.305" xml:space="preserve">
                     <path d="M160.336,292.917c-20.167,0-36.579,16.42-36.579,36.579c0,20.167,16.412,36.579,36.579,36.579
@@ -34,6 +34,9 @@
                         L87.504,105.927h260.301L311.17,254.33z" />
                 </svg>
             </span>
+        </div>
+        <div class="hide" id="cart-textarea">
+
         </div>
     </header>
     <main>
@@ -71,6 +74,32 @@
         </div>
     </footer>
     <script src="js/main.js"></script>
+    <script>
+        function cartToggle() {
+            let cartArea = document.getElementById("cart-textarea");
+            if (cartArea.classList.contains('hide'))
+                cartArea.classList.remove('hide');
+            else
+                cartArea.classList.add('hide');
+        }
+
+        window.onload = () => {
+            const buttonsBuy = document.querySelectorAll('.product-item-buy');
+
+            let CartObj = new Cart; // создаем сразу объект класса корзины (пустой)
+
+            // навешиваем на каждую кнопку "В корзину" создание объекта класса CartElement
+            buttonsBuy.forEach(item => item.addEventListener('click', function () {
+                let addCartElement = new CartElement(ProductsList.goods[this.dataset.id]);
+                CartObj.addGoods(addCartElement); // добавляем товар в корзину
+                CartObj.renderCartTextarea(); // отрисовываем корзину;
+                CartObj.renderCostCart(); // отрисовываем итого;
+                alert(`Товар ${addCartElement.title} добавлен в корзину`)
+            }));
+
+        }
+
+    </script>
 </body>
 
 </html>
