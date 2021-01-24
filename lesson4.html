@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input,
+        textarea {
+            width: 200px;
+            outline: none;
+            min-height: 20px;
+        }
+
+        form {
+            margin: 40px;
+        }
+
+        .comment_error {
+            display: none;
+            color: red;
+        }
+
+        .red-border {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <input type="text" id="name" name="name"><label for="name"> Имя</label><br>
+        <span id="name-comment" class="comment_error">Введите буквы!</span><br><br>
+        <input type="text" id="phone" name="phone"><label for="phone"> Телефон</label><br>
+        <span id="phone-comment" class="comment_error">Формат телефона +7(000)000-0000</span><br><br>
+        <input type="text" id="email" name="email"><label for="email"> E-mail</label><br>
+        <span id="email-comment" class="comment_error">mymail@mail.ru</span><br><br>
+        <textarea id="text-user" name="textuser"></textarea><label for="text-user"> Текст</label><br>
+        <span id="text-user-comment" class="comment_error">Введите текст!</span><br><br>
+        <input type="submit" value="Отправить" onclick="sendForm(); return false"><br><br>
+    </form>
+    <div class="text">
+        <p>One: 'Hi Mary.' Two: 'Oh, hi.'</p>
+        <p>One: 'How are you doing?'</p>
+        <p>Two: 'I'm doing alright. How about you?'</p>
+        <p>One: 'Not too bad. The weather is great isn't it?'</p>
+        <p>Two: 'Yes. It's absolutely beautiful today.'</p>
+        <p>One: 'I wish it was like this more frequently.'</p>
+        <p>Two: 'Me too.'</p>
+        <p>One: 'So where are you going now?'</p>
+        <p>Two: 'I'm going to meet a friend of mine at the department store.'</p>
+        <p>One: 'Going to do a little shopping?'</p>
+        <p>Two: 'Yeah, I have to buy some presents for my parents.'</p>
+        <p>One: 'What's the occasion?'</p>
+        <p>Two: 'It's their anniversary.'</p>
+        <p>One: 'That's great. Well, you better get going. You don't want to be late.'</p>
+        <p>Two: 'I'll see you next time.'</p>
+        <p>One: 'Sure. Bye.'</p>
+    </div>
+
+    <script>
+        // 1,2 задания
+        let text = document.querySelector('.text');
+        console.log(text);
+        let textChange = text.innerHTML.replace(/(?!\b)\'\b|\b\'(?!\b)|\'(?=\s)|\'(?=<\/p>)/g, "\"");
+        text.innerHTML = textChange;
+
+        // 3 задание
+        function sendForm() {
+            let nameComment = document.getElementById('name-comment');
+            let phoneComment = document.getElementById('phone-comment');
+            let emailComment = document.getElementById('email-comment');
+            let textUserComment = document.getElementById('text-user-comment');
+            nameComment.style.display = 'none';
+            phoneComment.style.display = 'none';
+            emailComment.style.display = 'none';
+            textUserComment.style.display = 'none';
+
+            let form = document.forms[0];
+            let name = form.elements.name;
+            let phone = form.elements.phone;
+            let email = form.elements.email;
+            let textuser = form.elements.textuser;
+
+            name.classList.remove('red-border');
+            phone.classList.remove('red-border');
+            email.classList.remove('red-border');
+            textuser.classList.remove('red-border');
+
+            if (!name.value.match(/^[a-zA-Zа-яА-ЯёЁ]+$/)) {
+                nameComment.style.display = 'block';
+                name.classList.add('red-border');
+            }
+            if (!phone.value.match(/^\+7\(\d{3}\)\d{3}-\d{4}$/)) {
+                phoneComment.style.display = 'block';
+                phone.classList.add('red-border');
+            }
+            if (!email.value.match(/^my[.-]?mail@mail\.ru$/)) {
+                emailComment.style.display = 'block';
+                email.classList.add('red-border');
+            }
+            if (!textuser.value.match(/^.+$/)) {
+                textUserComment.style.display = 'block';
+                textuser.classList.add('red-border');
+            }
+
+        }
+    </script>
+</body>
+
+</html>
