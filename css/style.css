@@ -3,7 +3,12 @@ body {
     padding: 0;
     margin: 0;
 }
-
+.error-text {
+    width: 75%;
+    color: red;
+    font-weight: 700;
+    text-align: center;
+}
 .container {
     width: 1200px;
     margin: 0 auto;
@@ -77,6 +82,12 @@ body {
     display: flex;
     align-items: center;
 }
+.search-items-wrap .search-item {
+    margin: 0 0 20px 0;
+}
+.search-items-wrap .search-item:last-child {
+    margin: 0;
+}
 .search-item-no {
     margin: 0;
     font-size: 16px;
@@ -95,6 +106,9 @@ body {
 }
 .btn-cart {
     cursor: pointer;
+    background: #251e23;
+    border: none;
+    outline: none;
 }
 .btn-cart svg {
     fill: #fff;
