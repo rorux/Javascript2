@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин наручных часов</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <header class="header-main">
+            <div class="container">
+                <a href="index.html" class="header-main-logo">Наручные часы</a>
+                <div class="header-main-right-wrap">
+                    <Search></Search>
+                    <Cart ref="basket"></Cart>
+                </div>
+            </div>
+
+        </header>
+        <main>
+            <nav class="menu">
+                <div class="container">
+                    <a href="#">Главная</a>
+                    <a href="#">Доставка</a>
+                    <a href="#">Оплата</a>
+                    <a href="#">Как купить</a>
+                    <a href="#">Гарантии</a>
+                    <a href="#">Возврат</a>
+                </div>
+            </nav>
+            <div class="content">
+                <Errors v-if="errorServer"></Errors>
+                <div class="container">
+                    <div class="sidebar">
+                        <span class="sidebar-title">Категории</span>
+                        <ul class="category-list">
+                            <li><a href="#">Кварцевые</a></li>
+                            <li><a href="#">Механические</a></li>
+                            <li><a href="#">Электронные</a></li>
+                            <li><a href="#">Спортивные</a></li>
+                            <li><a href="#">Водонепроницаемые</a></li>
+                            <li><a href="#">Противоударные</a></li>
+                        </ul>
+                    </div>
+                    <Products ref="catalog"></Products>
+                </div>
+            </div>
+
+        </main>
+        <footer class="footer-main">
+            <div class="container">
+                <span>&copy; 2021 Все права защищены</span>
+            </div>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" defer src="js/main.js"></script>
+</body>
+
+</html>
