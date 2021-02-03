@@ -1,17 +1,17 @@
 import { Product } from "./Product.js";
 
 export const Products = {
+    inject: ['getJson'],
     components: {
         Product
     },
     data() {
         return {
-            catalogUrl: 'js/getProducts.json',
             products: []
         }
     },
     mounted() {
-        this.$root.getJson(this.catalogUrl)
+        this.getJson(`/api/products`)
             .then(data => {
                 for (let product of data) {
                     this.products.push(product);

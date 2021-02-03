@@ -1,13 +1,13 @@
 import { CartItem } from "./CartItem.js";
 
 export const Cart = {
+    inject: ['getJson', 'postJson', 'putJson', 'delJson'],
     components: {
         CartItem
     },
     data() {
         return {
             cart: [],
-            cartUrl: 'js/getBasket.json',
             totalSum: 0,
             isVisibleCart: false,
         }
@@ -23,23 +23,42 @@ export const Cart = {
     },
     methods: {
         addProduct(product) {
-            this.$root.getJson(`js/addToBasket.json`)
+            let find = this.cart.find(el => el.id === product.id);
+            if (find) {
+                this.putJson(`/api/cart/${find.id}`, { quantity: 1 })
+                    .then(data => {
+                        if (data.result) {
+                            find.quantity++
+                        }
+                    });
+                return;
+            }
+
+            let prod = Object.assign({ quantity: 1 }, product);
+            this.postJson(`/api/cart`, prod)
                 .then(data => {
                     if (data.result) {
-                        let find = this.cart.find(el => el.id === product.id);
-                        if (find) {
-                            find.quantity += 1;
-                        } else {
-                            let prod = Object.assign({ quantity: 1 }, product);
-                            this.cart.push(prod);
-                        }
-                    } else {
-                        console.log('error');
+                        this.cart.push(prod);
                     }
-                })
+                });
         },
         removeProduct(product, removeAll = false) {
-            this.$root.getJson(`js/deleteFromBasket.json`)
+            if (removeAll || product.quantity == 1) {
+                this.delJson(`/api/cart/del/${product.id}`, product)
+                    .then(data => {
+                        if (data.result) {
+                            this.cart.splice(this.cart.indexOf(product), 1);
+                        }
+                    });
+            } else {
+                this.putJson(`/api/cart/${product.id}`, { quantity: -1 })
+                    .then(data => {
+                        if (data.result) {
+                            --product.quantity
+                        }
+                    });
+            }
+            /* this.getJson(`js/deleteFromBasket.json`)
                 .then(data => {
                     if (data.result) {
                         if (removeAll || product.quantity == 1) {
@@ -50,11 +69,11 @@ export const Cart = {
                     } else {
                         console.log('error');
                     }
-                })
+                }) */
         },
     },
     mounted() {
-        this.$root.getJson(this.cartUrl)
+        this.getJson(`/api/cart`)
             .then(data => {
                 for (let product of data.contents) {
                     this.cart.push(product);

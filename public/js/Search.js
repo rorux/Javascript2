@@ -23,12 +23,7 @@ export const Search = {
             else this.isVisibleSearch = false;
         }
     },
-    mounted() {
-        document.querySelector('.search-form').addEventListener('submit', e => {
-            e.preventDefault();
-        })
-    },
-    template: `<form action = "#" class="search-form" >
+    template: `<form action = "#" class="search-form" @submit.prevent="">
                     <input type="text" class="search-field" v-model="this.liveSearch" @input="this.filterGoods()" @blur="this.isVisibleSearch = false" >
                     <button class="btn-search" type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 413.842 413.842" xml:space="preserve">
