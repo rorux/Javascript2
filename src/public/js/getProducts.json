@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "title": "Invicta IN9204OB",
+        "price": 9000,
+        "picture": "img/1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Casio G-SHOCK GMW-B5000D-1E",
+        "price": 49000,
+        "picture": "img/2.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Boccia Titanium 3608-02",
+        "price": 5000,
+        "picture": "img/3.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Casio G-SHOCK GST-B200D-1AER",
+        "price": 34000,
+        "picture": "img/4.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Ingersoll I07401",
+        "price": 19000,
+        "picture": "img/5.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Traser TR_109040",
+        "price": 25000,
+        "picture": "img/6.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Orient ER27004W",
+        "price": 10000,
+        "picture": "img/7.jpg"
+    },
+    {
+        "id": 8,
+        "title": "Штурманские 2609-3714129",
+        "price": 29000,
+        "picture": "img/8.jpg"
+    },
+    {
+        "id": 9,
+        "title": "Aviator V.1.22.0.149.4",
+        "price": 27000,
+        "picture": "img/9.jpg"
+    }
+]

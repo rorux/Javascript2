@@ -1,0 +1,20 @@
+{
+    "amount": 14000,
+    "countGoods": 2,
+    "contents": [
+        {
+            "id": 1,
+            "title": "Invicta IN9204OB",
+            "price": 9000,
+            "picture": "img/1.jpg",
+            "quantity": 1
+        },
+        {
+            "id": 3,
+            "title": "Boccia Titanium 3608-02",
+            "price": 5000,
+            "picture": "img/3.jpg",
+            "quantity": 1
+        }
+    ]
+}
