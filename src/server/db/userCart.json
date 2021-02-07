@@ -1,0 +1,13 @@
+{
+    "amount": 14000,
+    "countGoods": 2,
+    "contents": [
+        {
+            "quantity": 2,
+            "id": 2,
+            "title": "Casio G-SHOCK GMW-B5000D-1E",
+            "price": 49000,
+            "picture": "img/2.jpg"
+        }
+    ]
+}

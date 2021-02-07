@@ -3,7 +3,7 @@ import { Products } from './Products.js';
 import { Cart } from './Cart.js';
 import { Search } from './Search.js';
 
-const Shop = {
+export const Shop = {
     data() {
         return {
             errorServer: false
@@ -76,5 +76,3 @@ const Shop = {
         }
     }
 };
-
-Vue.createApp(Shop).mount('#app');
